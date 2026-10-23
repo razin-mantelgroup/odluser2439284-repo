@@ -48,6 +48,7 @@ jobs:
         id: scan
         run: |
           mkdir -p $WIZ_DIR
+          ./wizcli auth
           ./wizcli scan container-image $REGISTRY/$REPOSITORY:${COMMIT_SHA} --policies ${ODLUSER}-vuln-block
         continue-on-error: false
         env:
